@@ -29,8 +29,9 @@ function App() {
 	*/
 
 	const trigger=useCallback(()=>{
+		alert(!play);
 		setPlay( !play );
-	},[setPlay]);
+	},[play,setPlay]);
 
   return (
     <div className="App">
@@ -38,8 +39,8 @@ function App() {
 		{ 
 		 play && (
 			<VideoComponent 
-			account={'1432358930001'} 
-			videoId={'6197188739001'}/>
+				account={'1432358930001'} 
+				videoId={'6197188739001'}/>
 		 )}
 		
     </div>
