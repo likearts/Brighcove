@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import Helmet from 'react-helmet';
 
 export default function VideoComponent( { account, videoId } ){
     const [ html, setHtml ] = useState('');
@@ -21,12 +22,15 @@ export default function VideoComponent( { account, videoId } ){
                 </video-js>
                 `
             );
-
+            
+            /*
+            <script defer src="https://players.brightcove.net/${account}/default_default/index.min.js"></script>
             const
                 src = `https://players.brightcove.net/${account}/default_default/index.min.js`,
                 s = document.createElement( 'script' );
             s.setAttribute( 'src', src );
             document.body.appendChild( s );
+            */
         }
 
         return ()=>{
@@ -34,16 +38,31 @@ export default function VideoComponent( { account, videoId } ){
         }
     },[account,videoId]);
 
+    const handleScriptInject=useCallback((tag)=>{
+        console.log('tag',tag);
+    },[]);
+
     return (
         <>
-            { html && ( <div dangerouslySetInnerHTML={ {__html: html} }></div> ) }
+            { html && ( 
+                <>
+                    <div dangerouslySetInnerHTML={ {__html: html} }></div> 
+                    <Helmet
+                        script={[{ src: `https://players.brightcove.net/${account}/default_default/index.min.js` }]}
+                        // Helmet doesn't support `onload` in script objects so we have to hack in our own
+                        onChangeClientState={(newState, addedTags) => handleScriptInject(addedTags)}
+                        />
+                </>
+            ) }
+{/*             
             <iframe src={`https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoId}&autoPlay`}
                 allowfullscreen=""
                 allow="encrypted-media"
                 autoplay="true"
                 width="640" 
                 height="360">
-            </iframe>
+            </iframe> */}
+
         </>
     )
 }
