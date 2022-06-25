@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+
+      //1432358930001/videos/6269609481001
+
+      1432358930001, 6269609549001
+      
+    <video-js data-account="1432358930001" 
+      data-player="default" 
+      data-embed="default" 
+      controls="" 
+      data-video-id="6197188739001" 
+      data-playlist-id="" 
+      data-application-id="" 
+      autoplay="true"
+      width="640" height="360"></video-js>
+    <script src="https://players.brightcove.net/1432358930001/default_default/index.min.js"></script>
+      
+    <iframe src="https://players.brightcove.net/1432358930001/default_default/index.html?videoId=6269609549001&autoplay=muted"
+      allowfullscreen=""
+      allow="encrypted-media"
+      autoplay="true"
+      width="640" 
+      height="360">
+    </iframe>
+    <script src="https://players.brightcove.net/1432358930001/default_default/index.min.js"></script>
+    -->
+    <!--
+    <div>
+      <video-js data-account="1432358930001" 
+      data-player="default" 
+      data-embed="default" 
+      controls="" 
+      data-video-id="6269609549001" 
+      data-playlist-id="" 
+      data-application-id="" 
+      autoplay="true"
+      width="640" height="360"></video-js>
+      <script src="https://players.brightcove.net/1432358930001/default_default/index.min.js"></script>
+    </div>
+    -->
+
+  <script>
+    //
+    // firefox, ie8+ 
+    //
+    /*
+    var accessor = Object.getOwnPropertyDescriptor(XMLHttpRequest.prototype, 'responseText');
+
+    Object.defineProperty(XMLHttpRequest.prototype, 'responseText', {
+      get: function() {
+        console.log('get responseText');
+        return accessor.get.call(this);
+      },
+      set: function(str) {
+        console.log('set responseText: %s', str);
+        //return accessor.set.call(this, str);
+      },
+      configurable: true
+    });
+
+
+    //
+    // chrome, safari (accessor == null)
+    //
+    var rawOpen = XMLHttpRequest.prototype.open;
+
+    XMLHttpRequest.prototype.open = function() {
+      if (!this._hooked) {
+        this._hooked = true;
+        setupHook(this);
+      }
+      rawOpen.apply(this, arguments);
+    }
+
+    function setupHook(xhr) {
+      function getter() {
+        console.log('get responseText');
+
+        delete xhr.responseText;
+        var ret = xhr.responseText;
+        setup();
+        xhr.clone( { store: 'uk' });
+        //xhr.setRequestHeader( 'store', 'uk' );
+        console.log('req', xhr);
+        return ret;
+      }
+
+      function setter(str) {
+        console.log('set responseText: %s', str);
+      }
+
+      function setup() {
+        Object.defineProperty(xhr, 'responseText', {
+          get: getter,
+          set: setter,
+          configurable: true
+        });
+      }
+      setup();
+    }
+    */
+  </script>
+  </body>
+</html>
