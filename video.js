@@ -37,7 +37,7 @@ export default function VideoComponent( { account, videoId } ){
     return (
         <>
             { html && ( <div dangerouslySetInnerHTML={ {__html: html} }></div> ) }
-            <iframe src="https://players.brightcove.net/1432358930001/default_default/index.html?videoId=6269609549001&autoPlay"
+            <iframe src={`https://players.brightcove.net/${account}/default_default/index.html?videoId=${videoId}&autoPlay`}
                 allowfullscreen=""
                 allow="encrypted-media"
                 autoplay="true"
